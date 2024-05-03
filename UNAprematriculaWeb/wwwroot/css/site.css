@@ -7,7 +7,7 @@ body {
     background-color: #000000;
     padding: 0;
     background-image: linear-gradient(to bottom, #EA0119, #84000E);
-    align-items:center;
+    align-items: center;
 }
 
 html {
@@ -27,8 +27,8 @@ html {
 .Title {
     background-color: white;
     color: #EA0119;
-    width:100%;
-    margin-bottom:3%;
+    width: 100%;
+    margin-bottom: 3%;
 }
 
 footer {
@@ -53,19 +53,17 @@ header {
     font-size: calc(0.6vw + 0.6vh); /* Utilizando una combinación de vw y vh */
 }
 
-a{
-    width:20%;
-    background:white;
-    text-decoration:none;
-    color:black;
-    border-radius:10%;
+a {
+    margin-bottom: 3%;
+    width: 20%;
+    background: white;
+    text-decoration: none;
+    color: black;
+    border-radius: 1rem !important;
 }
 
-img{
-    align-self:center;
-}
-
-input{
-    width:50% !important;
-    margin:3%;
+input {
+    width: 50% !important;
+    margin: 2% 4% 3% 4% !important;
+    border-radius: 1rem !important;
 }
