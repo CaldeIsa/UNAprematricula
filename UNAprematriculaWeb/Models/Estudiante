@@ -1,0 +1,13 @@
+using System.ComponentModel.DataAnnotations;
+
+public class Estudiante
+{
+    public int EstudianteID { get; set; }
+
+    [Required(ErrorMessage = "El campo Carrera es requerido.")]
+    [StringLength(255, ErrorMessage = "El campo Carrera no puede tener más de 255 caracteres.")]
+    public string Carrera { get; set; }
+
+    public int CursoID { get; set; } // Clave foránea hacia Curso
+    public Curso Curso { get; set; } // Propiedad de navegación
+}
