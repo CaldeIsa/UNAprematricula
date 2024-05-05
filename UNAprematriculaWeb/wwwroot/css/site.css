@@ -6,7 +6,7 @@ body {
     color: white;
     background-color: #000000;
     padding: 0;
-    background-image: linear-gradient(to bottom, #EA0119, #84000E);
+    background-image: url(../images/background.jpg);
     align-items: center;
 }
 
@@ -25,10 +25,10 @@ html {
 }
 
 .Title {
-    background-color: white;
-    color: #EA0119;
+   
     width: 100%;
-    margin-bottom: 3%;
+    text-align: center;
+    margin-bottom: 2%;
 }
 
 footer {
@@ -64,6 +64,69 @@ a {
 
 input {
     width: 50% !important;
-    margin: 2% 4% 3% 4% !important;
+    margin:  0.5% 4% !important;
     border-radius: 1rem !important;
+}
+
+.info {
+    border-radius: 1rem !important;
+    width: auto!important;
+    color: white;
+    margin:0% 10%;
+}
+.logo{
+    height:120px;
+
+}
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 80%;
+    text-align: center !important;
+}
+.login {
+    margin-top: 5%;
+    padding: 3% 0;
+    width: 60% !important;
+    border-radius: 1rem !important;
+}
+
+h1.info {
+    color: white;
+}
+
+.login h4 {
+    color: white !important;
+}
+.btn {
+    background-color: transparent;
+    color: white !important;
+}
+.login input {
+    border-color: #EA0119;
+}
+a:hover {
+    color: #EA0119!important;
+}
+form {
+    width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+    align-content: center !important;
+    justify-content: center !important;
+}
+.float-buttons {
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    height:30%;
+}
+.float-buttons .btn{
+    width:100%;
 }
