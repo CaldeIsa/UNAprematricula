@@ -36,6 +36,15 @@ namespace UNAprematriculaWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Courses() { 
+            return View();
+        }
+
+        public IActionResult InfoCourse()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
