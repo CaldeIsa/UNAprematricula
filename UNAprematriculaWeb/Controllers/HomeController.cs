@@ -18,6 +18,7 @@ namespace UNAprematriculaWeb.Controllers
 
         }
 
+        [HttpGet]
         public IActionResult MainAcademico()
         {
             return View();
@@ -57,9 +58,14 @@ namespace UNAprematriculaWeb.Controllers
 
             if (usuarioEncontrado != null)
             {
-                
-      
-                return View( "MainEstudiante",usuarioEncontrado);
+                if(usuarioEncontrado.TipoUsuario == "estudiante")
+                {
+                    return View( "MainEstudiante",usuarioEncontrado);
+                }
+                else if(usuarioEncontrado.TipoUsuario == "academico")
+                {
+                    return View("MainAcademico", usuarioEncontrado);
+                }
 
                
             }
@@ -71,7 +77,7 @@ namespace UNAprematriculaWeb.Controllers
                
             }
 
-
+            return View();
         }
 
         [HttpGet]
