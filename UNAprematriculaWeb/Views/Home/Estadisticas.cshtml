@@ -1,0 +1,59 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="main">
+
+    <h1 class="Title">ESTADISTICAS</h1>
+    <h4>Fundamentos de la Informatica</h4>
+    <h5>Tipo de Matricula</h5>
+    <canvas id="miGrafico" style="background-color:white; border-radius: 1rem !important;"></canvas>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Datos quemados
+            var datos = {
+                etiquetas: ["Primera Vez", "Matriculado", "Repitencia"],
+                datos: [50, 15, 10]
+            };
+
+            // Configurar el gráfico circular
+            var ctx = document.getElementById('miGrafico').getContext('2d');
+            var miGrafico = new Chart(ctx, {
+                type: 'pie', // Tipo de gráfico circular
+                data: {
+                    labels: datos.etiquetas,
+                    datasets: [{
+                        label: 'Tipo de Matricula',
+                        data: datos.datos,
+                        backgroundColor: [
+                            'rgba(166, 19, 24, 1)', // Rojo
+                            'rgba(255, 81, 87, 1)', // Azul
+                            'rgba(190, 0, 65, 1)', // Amarillo
+                        ],
+                        borderColor: [
+                            'white'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                color: 'black'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+</div>

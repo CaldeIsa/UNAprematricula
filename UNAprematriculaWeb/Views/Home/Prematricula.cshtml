@@ -1,0 +1,139 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="main">
+	<h1 class="Title">PREMATRICULA</h1>
+
+	<div id="carouselExample" class="carousel contenedor">
+		<div class="carousel-inner ">
+			<div class="carousel-item active">
+				<h2 class="Title">I CICLO - I SEMESTRE</h2>
+				<table class="table text-light tabla">
+					<thead>
+						<tr>
+							<th scope="col">NRC</th>
+							<th scope="col">CURSO</th>
+							<th scope="col">PREMATRICULA</th>
+							<th scope="col"> DATOS DE PREMATRICULA</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">EIF200</th>
+							<td><a class="curso" asp-controller="Home" asp-action="InfoCourse" disable>Fundamentos de Informática</a></td>
+							<td><input type="checkbox" class="checkCurso"></td>
+							<td>
+								<div id="subtable" style="display:none;">
+									<ul>
+						
+										<li id="estadoCursotr">
+											<label> Tipo de Matrícula</label>
+											<select id="estadoCurso">
+												<option selected>Seleccione</option>
+												<option value="PrimeraVez">Primera vez</option>
+												<option value="Matriculado">Matriculado</option>
+												<option value="Repitencia">Repitencia</option>
+											</select>
+										</li>
+										<li id="repeticionestr" style="display:none;">
+											<label>Cantidad de veces que ha llevado el curso</label>
+											<select>
+												<option selected>Seleccione</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												
+											</select>
+										</li>
+										<li id="tutoriastr" style="display:none;">
+											<label>Ha asistido a tutorias</label>
+											<select>
+												<option selected>Seleccione</option>
+												<option value="Si">Si</option>
+												<option value="No">No</option>
+											
+											</select>
+										</li>
+										<li id="horariotr" style="display:none;">
+											<label>Cual es el horario de su preferencia</label>
+											<select>
+												<option selected>Seleccione</option>
+												<option value="1">Mañana</option>
+												<option value="2">Tarde</option>
+												<option value="3">Noche</option>
+
+											</select>
+										</li>
+									</ul>
+								</div>
+
+
+							</td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Previous</span>
+		</button>
+		<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="visually-hidden">Next</span>
+		</button>
+	</div>
+	<div class="float-buttons">
+		<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainEstudiante" role="button">REGRESAR</a>
+	</div>
+</div>
+
+
+    <script>
+        const selectEstado = document.getElementById('estadoCurso');
+        const checkboxes = document.querySelectorAll('.checkCurso');
+		const Tutoriastr = document.getElementById('tutoriastr');
+		const Repeticionestr = document.getElementById('repeticionestr');
+        const Estadotr = document.getElementById('estadoCursotr');
+        const SubTable = document.getElementById('subtable');
+		const Horariotr = document.getElementById('horariotr');
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener('change', function () {
+                if (this.checked) {
+                    
+                    SubTable.style.display = 'block';
+              
+                } 
+                else {
+                    SubTable.style.display = 'none';
+                }
+
+            });
+
+        });
+
+    selectEstado.addEventListener('change', function () {
+		Horariotr.style.display = 'block';
+        checkEstado();
+    });
+
+    // Función para verificar el valor del elemento select 'estadoCurso' y mostrar/ocultar elementos correspondientes
+    function checkEstado() {
+        const ValueEstado = selectEstado.value;
+
+
+        if (ValueEstado == "Repitencia") {
+            Repeticionestr.style.display = 'block';
+			Tutoriastr.style.display = 'block';
+        } else {
+            Repeticionestr.style.display = 'none';
+			Tutoriastr.style.display = 'none';
+        }
+    }
+    </script>

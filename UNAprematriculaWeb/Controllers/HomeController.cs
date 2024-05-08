@@ -13,6 +13,15 @@ namespace UNAprematriculaWeb.Controllers
             _logger = logger;
         }
 
+        public IActionResult MainAcademico()
+        {
+            return View();
+        }
+
+        public IActionResult CreateEstadistica()
+        {
+            return View();
+        }
         public IActionResult Index()
         {
             return View();
@@ -45,6 +54,16 @@ namespace UNAprematriculaWeb.Controllers
         {
             return View();
         }
+
+        public IActionResult Prematricula() {
+            return View();
+        }
+
+        public IActionResult Estadisticas()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -61,10 +61,13 @@ a {
     border-radius: 1rem !important;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], select {
     width: 50% !important;
     margin: 0.5% 4% !important;
     border-radius: 1rem !important;
+}
+select{
+    padding:1%;
 }
 
 .info {
@@ -157,4 +160,38 @@ a.curso:hover{
     border-radius: 1rem !important;
     padding:1%;
     width:40%;
+}
+.float-LogOut .btn {
+    position: fixed;
+    top: 7%;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: white!important;
+    color: #EA0119!important;
+}
+.float-LogOut a{
+    width:12% !important;
+}
+
+#subtable ul {
+    list-style: none; /* Elimina el marcador de lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+
+#subtable li {
+    margin-bottom: 10px; /* Espacio entre elementos de lista */
+    text-align: left;
+}
+
+#subtable select {
+    display: block; /* Muestra cada select en una línea separada */
+    width: calc(100% - 20px); /* Ancho total menos el espacio para el margen */
+    margin-top: 5px; /* Espacio encima del select */
+}
+canvas{
+    width:30%!important;
+    height:90%!important;
 }
