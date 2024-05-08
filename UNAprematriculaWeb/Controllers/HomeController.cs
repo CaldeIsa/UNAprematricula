@@ -41,12 +41,28 @@ namespace UNAprematriculaWeb.Controllers
             Console.WriteLine(loginViewModel.usuario);
             Console.WriteLine(loginViewModel.contrasena);
 
-            var usuarioEncontrado = _dbContext.Usuarios.Select(e => e.Email == loginViewModel.usuario && e.Contrasena == loginViewModel.contrasena).FirstOrDefault();
+            var usuarioEncontrado = _dbContext.Usuarios.FirstOrDefault(e => e.Email == loginViewModel.usuario && e.Contrasena == loginViewModel.contrasena);
+
+            //Console.WriteLine(usuarioEncontrado.Email);
+            //Console.WriteLine(usuarioEncontrado.Contrasena);
+
+            if (usuarioEncontrado != null)
+            {
+                
+      
+                return View( "MainEstudiante",usuarioEncontrado);
+
+               
+            }
+            else
+            {
+              
+
+                return View("Login");
+               
+            }
 
 
-
-           
-            return View();
         }
 
         [HttpGet]
