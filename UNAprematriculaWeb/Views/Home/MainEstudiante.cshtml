@@ -1,24 +1,12 @@
 ﻿
-
-
-
-   @model UNAprematriculaWeb.Models.Usuario
-
-
-
-
-
-
-<div class="main ">
-    
-    <div class="info contenedor">
-        <img class="logo" src="/images/Profile.png">
-		<h1>@Model.Nombre @Model.Apellido</h1>
-		<h3>ESTUDIANTE</h3>
-		<h4>@Model.UserId</h4>
-    </div>
-    <div class="op main">
-        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Prematricula" role="button">PREMATRICULAR</a>
+<div class="contenedor CSM">
+   
+    <img class="logoUNA" src="/images/LogoU.png">
+	<h3>JOSE MORA LOPEZ</h3>
+	<p>ESTUDIANTE</p>
+	<p>3 5283 0045</p>
+    <div class="op">
+        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="PruebaDT" role="button">PREMATRICULAR</a>
         <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Courses" role="button">LISTA DE CURSOS</a>
         <div class="float-LogOut">
             <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">CERRAR SESION</a>

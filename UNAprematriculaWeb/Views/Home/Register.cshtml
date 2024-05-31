@@ -4,29 +4,25 @@
     ViewData["Title"] = "Registro";
 }
 
-<div class="main">
+<div class="contenedor CSM">
 
-    <form method="post" asp-action="Register" class="contenedor">
+    <form id="registerForm">
 
         <h1 class="Title">REGISTRO</h1>
 
-        <h4>Nombre</h4>
+		<p><b>Nombre</b></p>
         <input type="text" class="form-control" id="inputNombre" name="Nombre" placeholder="Nombre" required>
-        <h4>Usuario</h4>
+        <p><b>Usuario</b></p>
         <input type="text" class="form-control" id="inputUsuario" name="Usuario" placeholder="Usuario" required>
-        <h4>Correo</h4>
+        <p><b>Correo Institucional</b></p>
         <input type="text" class="form-control" id="inputCorreo" name="Correo" placeholder="Correo Institucional" required>
-        <h4>Contraseña</h4>
+        <p><b>Contraseña</b></p>
         <input type="password" class="form-control" id="inputPassword" name="Password" placeholder="Contraseña" required>
-        <h4>Confirmar Contraseña</h4>
+        <p><b>Confirmar Contraseña</b></p>
         <input type="password" class="form-control" id="inputConfirmPassword" name="ConfirmPassword" placeholder="Confirmar Contraseña" required>
-
-        <div class="float-buttons">
-			<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">REGISTRARME</a>
-			<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">REGRESAR</a>
-        </div>
-       
+        <button type="submit" class="btn btn-light">REGISTRARME</button>
     </form>
+	<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">REGRESAR</a>
 
 </div>
 

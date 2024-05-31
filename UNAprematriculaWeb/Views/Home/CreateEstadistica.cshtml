@@ -3,14 +3,17 @@
 *@
 @{
 }
-<div class="login contenedor">
-	<h1 class="Title">ESTADISTICAS</h1>
-	<h4>CICLO</h4>
-	<select id="ciclo" name="ciclo" placeholder="CICLO">
-		<option value="I">I CICLO</option>
-		<option value="II">II CICLO</option>
-	</select>
-	<h4>Año</h4>
-	<input type="text" class=" form-control" placeholder="Año" aria-label="Anno" aria-describedby="addon-wrapping">
-	<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Estadisticas" role="button">GENERAR ESTADISTICA</a>
+<div class="contenedor CSM">
+	<form>
+		<h1 class="Title">ESTADISTICAS</h1>
+		<h4>CICLO</h4>
+		<select id="ciclo" name="ciclo" placeholder="CICLO">
+			<option value="I">I CICLO</option>
+			<option value="II">II CICLO</option>
+		</select>
+		<h4>Año</h4>
+		<input type="text" class=" form-control" placeholder="Año" aria-label="Anno" aria-describedby="addon-wrapping">
+		<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Estadisticas" role="button">GENERAR ESTADISTICA</a>
+	</form>
+	
 </div>

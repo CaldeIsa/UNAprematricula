@@ -1,119 +1,87 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using UNAprematriculaWeb.Models;
 using UNAprematriculaWeb.ViewModels;
 
 namespace UNAprematriculaWeb.Controllers
 {
-    public class HomeController : Controller
-    {
-        private readonly ILogger<HomeController> _logger;
+	public class HomeController : Controller
+	{
+		private readonly ILogger<HomeController> _logger;
 
-        private readonly PrematriculaUnaContext _dbContext = new PrematriculaUnaContext();
+		private readonly PrematriculaUnaContext _dbContext = new PrematriculaUnaContext();
 
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
+		public HomeController(ILogger<HomeController> logger)
+		{
+			_logger = logger;
 
-        }
+		}
 
-        [HttpGet]
-        public IActionResult MainAcademico()
-        {
-            return View();
-        }
+		public IActionResult MainAcademico()
+		{
+			return View();
+		}
 
-        public IActionResult CreateEstadistica()
-        {
-            return View();
-        }
-        public IActionResult Index()
-        {
-            return View();
-        }
+		public IActionResult CreateEstadistica()
+		{
+			return View();
+		}
+		public IActionResult Index()
+		{
+			return View();
+		}
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
+		public IActionResult Privacy()
+		{
+			return View();
+		}
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+		public IActionResult Login()
+		{
+			return View();
+		}
+
+		public IActionResult MainEstudiante()
+		{
+
+			return View();
+		}
 
 
+		public IActionResult Register()
+		{
+			return View();
+		}
 
-        [HttpPost]
-        public IActionResult MainEstudiante(LoginViewModel loginViewModel)
-        {
-            Console.WriteLine(loginViewModel.usuario);
-            Console.WriteLine(loginViewModel.contrasena);
+		public IActionResult Courses()
+		{
+			return View();
+		}
 
-            var usuarioEncontrado = _dbContext.Usuarios.FirstOrDefault(e => e.Email == loginViewModel.usuario && e.Contrasena == loginViewModel.contrasena);
+		public IActionResult InfoCourse()
+		{
+			return View();
+		}
 
-            //Console.WriteLine(usuarioEncontrado.Email);
-            //Console.WriteLine(usuarioEncontrado.Contrasena);
+		public IActionResult Prematricula()
+		{
+			return View();
+		}
 
-            if (usuarioEncontrado != null)
-            {
-                if(usuarioEncontrado.TipoUsuario == "estudiante")
-                {
-                    return View( "MainEstudiante",usuarioEncontrado);
-                }
-                else if(usuarioEncontrado.TipoUsuario == "academico")
-                {
-                    return View("MainAcademico", usuarioEncontrado);
-                }
+		public IActionResult PruebaDT ()
+		{
+			return View();
+		}
 
-               
-            }
-            else
-            {
-              
+		public IActionResult Estadisticas()
+		{
+			return View();
+		}
 
-                return View("Login");
-               
-            }
-
-            return View();
-        }
-
-        [HttpGet]
-        public IActionResult MainEstudiante()
-        {
-
-            return View();
-        }
-
-        public IActionResult Register()
-        {
-            return View();
-        }
-
-        public IActionResult Courses() { 
-            return View();
-        }
-
-        public IActionResult InfoCourse()
-        {
-            return View();
-        }
-
-        public IActionResult Prematricula() {
-            return View();
-        }
-
-        public IActionResult Estadisticas()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
+		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+		public IActionResult Error()
+		{
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+		}
+	}
 }

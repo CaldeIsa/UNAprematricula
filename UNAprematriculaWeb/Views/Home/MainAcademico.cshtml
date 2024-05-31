@@ -1,19 +1,14 @@
 ﻿@model UNAprematriculaWeb.Models.Usuario
 
-<div class="main ">
-
-    <div class="info contenedor">
-        <img class="logo" src="/images/Profile.png">
-        <h1>@Model.Nombre @Model.Apellido</h1>
-        <h3>ACADEMICO</h3>
-        <h4>@Model.UserId</h4>
+<div class="contenedor CSM">
+    <img class="logoUNA" src="/images/LogoU.png">
+    <h3>MARILYN PERAZA</h3>
+    <p>ACADEMICO</p>
+    <p>1 1815 0321</p>
+    <div class="op">
+		<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="PlanEst" role="button">PLAN DE ESTUDIOS</a>
+        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="RegistroPreM" role="button">PREMATRICULA</a>
+		<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="CreateEstadistica" role="button">ESTADISTICAS</a>
+        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">CERRAR SESION</a>
     </div>
-    <div class="op contenedor">
-        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">REGISTRO DE PREMATRICULA</a>
-        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">PLAN DE ESTUDIOS</a>
-        <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="CreateEstadistica" role="button">ESTADISTICAS</a>
-        <div class="float-LogOut">
-			<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Login" role="button">CERRAR SESION</a>
-        </div>
-        
-    </div>
+</div>

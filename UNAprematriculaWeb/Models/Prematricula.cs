@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace UNAprematriculaWeb.Models;
+﻿namespace UNAprematriculaWeb.Models;
 
 public partial class Prematricula
 {
-    public int UserId { get; set; }
+	public int UserId { get; set; }
 
-    public int? CursosSeleccionados { get; set; }
+	public int? CursosSeleccionados { get; set; }
 }

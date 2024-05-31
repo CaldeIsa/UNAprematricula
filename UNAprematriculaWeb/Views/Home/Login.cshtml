@@ -5,16 +5,21 @@
     ViewData["Title"] = "Prueba";
 }
 
-   
-<form class="login contenedor" method= "post" action="/Home/MainEstudiante">
-    <h1 class="Title">BIENVENIDO</h1>
-    <h4>Usuario</h4>
-    <input type="text" name="usuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="addon-wrapping">
-    <h4>Contraseña</h4>
-    <input type="password" name="contrasena" id="inputPassword5" placeholder="Contraseña" class="form-control" aria-describedby="passwordHelpBlock">
-    <button type="submit" class="btn btn-light">INICIAR SESION</button>
-    <a class="btn btn-light" href="/Home/MainAcademico" role="button">REGISTRARME</a>
-</form>
+<div class="contenedor CSM">
+	<form id="loginForm">
+		
+		<h4>Usuario</h4>
+		<input type="text" name="username" id="username" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="addon-wrapping" required>
+		<h4>Contraseña</h4>
+		<input type="password" name="password" id="password" placeholder="Contraseña" class="form-control" aria-describedby="passwordHelpBlock" required>
+		<p>¿Olvidó su contraseña?</p>
+		<button type="submit" class="btn btn-light">INICIAR SESION</button>
+
+	</form>
+	<a type="button"class="btn btn-light" href="/Home/Register" >REGISTRARME</a>
+</div>
 
 
+<script src="~/js/Database.js" type="module"></script>
+<script src="~/js/Login.js" type="module"></script>
     

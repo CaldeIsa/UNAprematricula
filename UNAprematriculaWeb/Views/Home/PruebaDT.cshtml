@@ -1,0 +1,94 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="contenedor CSM listaCursos">
+    <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%"></div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const ciclos = ["I CICLO", "II CICLO", "III CICLO"];
+        const cursos = ["Fundamentos de la informatica", "Estudios Generales", "Inglés", "Matemáticas", "Historia"];
+        const accordionContainer = document.getElementById("accordionFlushExample");
+
+        ciclos.forEach((ciclo, cicloIndex) => {
+            const cicloItem = document.createElement("div");
+            cicloItem.className = "accordion-item";
+
+            const cicloHeaderId = `flush-heading${cicloIndex}`;
+            const cicloCollapseId = `flush-collapse${cicloIndex}`;
+
+            cicloItem.innerHTML = `
+                        <h4 class="accordion-header" id="${cicloHeaderId}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cicloCollapseId}" aria-expanded="false" aria-controls="${cicloCollapseId}">
+                                <strong>${ciclo}</strong>
+                            </button>
+                        </h4>
+                        <div id="${cicloCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cicloHeaderId}" data-bs-parent="#accordionFlushExample">
+                            <div class="accordion accordion-flush" id="accordionCursos${cicloIndex}">
+                            </div>
+                        </div>
+                    `;
+
+            accordionContainer.appendChild(cicloItem);
+
+            const cursoContainer = document.getElementById(`accordionCursos${cicloIndex}`);
+
+            cursos.forEach((curso, cursoIndex) => {
+                const cursoItem = document.createElement("div");
+                cursoItem.className = "accordion-item";
+
+                const cursoHeaderId = `flush-heading${cicloIndex}-${cursoIndex}`;
+                const cursoCollapseId = `flush-collapse${cicloIndex}-${cursoIndex}`;
+
+                cursoItem.innerHTML = `
+                            <h5 class="accordion-header" id="${cursoHeaderId}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cursoCollapseId}" aria-expanded="false" aria-controls="${cursoCollapseId}">
+                                    ${curso.toUpperCase()}
+                                </button>
+                            </h5>
+                                <div id="${cursoCollapseId}" class="accordion-collapse collapse" data-bs-toggle="collapse" aria-labelledby="${cursoHeaderId}" data-bs-parent="#accordionCursos${cicloIndex}">
+                                <div class="accordion-body">
+                                    <div class="datosP">
+                                        <p>Prematricular</p>
+                                        <input type="checkbox" class="checkCurso" style="box-shadow: none !important;">
+                                        <p>Estado del curso</p>
+                                        <select id="estadoCurso">
+                                            <option selected>Seleccione</option>
+                                            <option value="PrimeraVez">Primera vez</option>
+                                            <option value="Matriculado">Matriculado</option>
+                                            <option value="Repitencia">Repitencia</option>
+                                        </select>
+                                        <p>Cantidad de veces que ha llevado el curso</p>
+                                        <select>
+                                            <option selected>Seleccione</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                        </select>
+                                        <label>Ha asistido a tutorías</label>
+                                        <select>
+                                            <option selected>Seleccione</option>
+                                            <option value="Si">Sí</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                        <label>Cuál es el horario de su preferencia</label>
+                                        <select>
+                                            <option selected>Seleccione</option>
+                                            <option value="1">Mañana</option>
+                                            <option value="2">Tarde</option>
+                                            <option value="3">Noche</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+
+                cursoContainer.appendChild(cursoItem);
+            });
+        });
+    });
+</script>
