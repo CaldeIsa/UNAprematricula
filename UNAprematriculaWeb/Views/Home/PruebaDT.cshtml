@@ -8,28 +8,25 @@
     <div class="accordion accordion-flush" id="accordionFlushYears" style="width:100%"></div>
 </div>
 
-
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // Definir años, ciclos y sus respectivos cursos
         const anosConCiclosYCursos = {
             "PRIMER AÑO": {
-                "I CICLO": ["Fundamentos de la informatica", "Matematica para Informatica", "Estudios Generales", "Estudios Generales"],
-                "II CICLO": ["Programación I", "Inglés Integrado II", "Cálculo I", "Estudios Generales III", "Estudios Generales IV"]
+                "I CICLO": ["FUNDAMENTOS DE LA INFORMATICA", "MATEMATICA PARA INFORMATICA", "ESTUDIOS GENERALES I", "ESTUDIOS GENERALES II"],
+                "II CICLO": ["PROGRAMACIÓN I", "INGLÉS INTEGRADO II", "CÁLCULO I", "ESTUDIOS GENERALES III", "ESTUDIOS GENERALES IV"]
             },
             "SEGUNDO AÑO": {
-                "I CICLO": ["Soporte Tecnico", "Programacion II", "Algebra Lineal", "Estrutucas Discretas", "Ingles Integrado II"],
-                "II CICLO": ["Arquitectura de Computadoras", "Programación III", "Estructuras de Datos", "La Organización y su Entorno", "Probabilidad y Estadística"]
+                "I CICLO": ["SOPORTE TECNICO", "PROGRAMACION II", "ALGEBRA LINEAL", "ESTRUCTURAS DISCRETAS", "INGLÉS INTEGRADO II"],
+                "II CICLO": ["ARQUITECTURA DE COMPUTADORAS", "PROGRAMACIÓN III", "ESTRUCTURAS DE DATOS", "LA ORGANIZACIÓN Y SU ENTORNO", "PROBABILIDAD Y ESTADÍSTICA"]
             },
             "TERCER AÑO": {
-                "I CICLO": ["Comunicaciones y redes de Computadores", "Programación VI", "Ingeniería de Sistemas I", "Diseño e Implementación de Base de Datos", "Sistemas Operativos"],
-                "II CICLO": ["Paradigmas de Programación", "Ingeniería de Sistemas II", "Administración de Bases de Datos", "Liderazgo y Organización", "Investigación de Operaciones y sus Aplicaciones"]
+                "I CICLO": ["COMUNICACIONES Y REDES DE COMPUTADORES", "PROGRAMACIÓN VI", "INGENIERÍA DE SISTEMAS I", "DISEÑO E IMPLEMENTACIÓN DE BASE DE DATOS", "SISTEMAS OPERATIVOS"],
+                "II CICLO": ["PARADIGMAS DE PROGRAMACIÓN", "INGENIERÍA DE SISTEMAS II", "ADMINISTRACIÓN DE BASES DE DATOS", "LIDERAZGO Y ORGANIZACIÓN", "INVESTIGACIÓN DE OPERACIONES Y SUS APLICACIONES"]
             },
             "CUARTO AÑO": {
-                "I CICLO": ["Ingeniería de Sistemas III", "Diseño y Programación de Moviles", "Métodos de Investigación", "Optativa", "Optativa"],
-                "II CICLO": ["PPS", "Aplicaciones Informáticas Globales", "Informática y Sociedad", "Optativa", "Optativa"]
+                "I CICLO": ["INGENIERÍA DE SISTEMAS III", "DISEÑO Y PROGRAMACIÓN DE MOVILES", "MÉTODOS DE INVESTIGACIÓN", "OPTATIVA", "OPTATIVA"],
+                "II CICLO": ["PPS", "APLICACIONES INFORMÁTICAS GLOBALES", "INFORMÁTICA Y SOCIEDAD", "OPTATIVA", "OPTATIVA"]
             }
         };
 
@@ -43,15 +40,15 @@
             const anoCollapseId = `flush-collapse-ano${anoIndex}`;
 
             anoItem.innerHTML = `
-                    <h4 class="accordion-header" id="${anoHeaderId}">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${anoCollapseId}" aria-expanded="false" aria-controls="${anoCollapseId}">
-                            <strong>${ano}</strong>
-                        </button>
-                    </h4>
-                    <div id="${anoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${anoHeaderId}" data-bs-parent="#accordionFlushYears">
-                        <div class="accordion accordion-flush" id="accordion${anoIndex}"></div>
-                    </div>
-                `;
+                            <h4 class="accordion-header" id="${anoHeaderId}">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${anoCollapseId}" aria-expanded="false" aria-controls="${anoCollapseId}">
+                                    <strong>${ano}</strong>
+                                </button>
+                            </h4>
+                            <div id="${anoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${anoHeaderId}" data-bs-parent="#accordionFlushYears">
+                                <div class="accordion accordion-flush" id="accordion${anoIndex}"></div>
+                            </div>
+                        `;
 
             accordionContainer.appendChild(anoItem);
 
@@ -66,15 +63,15 @@
                 const cicloCollapseId = `flush-collapse${anoIndex}-${cicloIndex}`;
 
                 cicloItem.innerHTML = `
-                        <h5 class="accordion-header" id="${cicloHeaderId}">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cicloCollapseId}" aria-expanded="false" aria-controls="${cicloCollapseId}">
-                                ${ciclo}
-                            </button>
-                        </h5>
-                        <div id="${cicloCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cicloHeaderId}" data-bs-parent="#accordion${anoIndex}">
-                            <div class="accordion accordion-flush" id="accordionCursos${anoIndex}-${cicloIndex}"></div>
-                        </div>
-                    `;
+                                <h5 class="accordion-header" id="${cicloHeaderId}">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cicloCollapseId}" aria-expanded="false" aria-controls="${cicloCollapseId}">
+                                        ${ciclo}
+                                    </button>
+                                </h5>
+                                <div id="${cicloCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cicloHeaderId}" data-bs-parent="#accordion${anoIndex}">
+                                    <div class="accordion accordion-flush" id="accordionCursos${anoIndex}-${cicloIndex}"></div>
+                                </div>
+                            `;
 
                 accordionAnoContainer.appendChild(cicloItem);
 
@@ -89,47 +86,47 @@
                     const cursoCollapseId = `flush-collapse${anoIndex}-${cicloIndex}-${cursoIndex}`;
 
                     cursoItem.innerHTML = `
-                            <h6 class="accordion-header" id="${cursoHeaderId}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cursoCollapseId}" aria-expanded="false" aria-controls="${cursoCollapseId}">
-                                    ${curso.toUpperCase()}
-                                </button>
-                            </h6>
-                            <div id="${cursoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cursoHeaderId}" data-bs-parent="#accordionCursos${anoIndex}-${cicloIndex}">
-                                <div class="accordion-body">
-                                    <div class="datosP">
-                                        <p>Prematricular</p>
-                                        <input type="checkbox" class="checkCurso" style="box-shadow: none !important;">
-                                        <p>Estado del curso</p>
-                                        <select id="estadoCurso">
-                                            <option selected>Seleccione</option>
-                                            <option value="PrimeraVez">Primera vez</option>
-                                            <option value="Matriculado">Matriculado</option>
-                                            <option value="Repitencia">Repitencia</option>
-                                        </select>
-                                        <p>Cantidad de veces que ha llevado el curso</p>
-                                        <select>
-                                            <option selected>Seleccione</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                        </select>
-                                        <label>Ha asistido a tutorías</label>
-                                        <select>
-                                            <option selected>Seleccione</option>
-                                            <option value="Si">Sí</option>
-                                            <option value="No">No</option>
-                                        </select>
-                                        <label>Cuál es el horario de su preferencia</label>
-                                        <select>
-                                            <option selected>Seleccione</option>
-                                            <option value="1">Mañana</option>
-                                            <option value="2">Tarde</option>
-                                            <option value="3">Noche</option>
-                                        </select>
+                                    <h6 class="accordion-header" id="${cursoHeaderId}">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cursoCollapseId}" aria-expanded="false" aria-controls="${cursoCollapseId}">
+                                            ${curso.toUpperCase()} <!-- Convertir a mayúsculas -->
+                                        </button>
+                                    </h6>
+                                    <div id="${cursoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cursoHeaderId}" data-bs-parent="#accordionCursos${anoIndex}-${cicloIndex}">
+                                        <div class="accordion-body">
+                                            <div class="datosP">
+                                                <p>Prematricular</p>
+                                                <input type="checkbox" class="checkCurso" style="box-shadow: none !important;">
+                                                <p>Estado del curso</p>
+                                                <select id="estadoCurso">
+                                                    <option selected>Seleccione</option>
+                                                    <option value="PrimeraVez">Primera vez</option>
+                                                    <option value="Matriculado">Matriculado</option>
+                                                    <option value="Repitencia">Repitencia</option>
+                                                </select>
+                                                <p>Cantidad de veces que ha llevado el curso</p>
+                                                <select>
+                                                    <option selected>Seleccione</option>
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                </select>
+                                                <label>Ha asistido a tutorías</label>
+                                                <select>
+                                                    <option selected>Seleccione</option>
+                                                    <option value="Si">Sí</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                                <label>Cuál es el horario de su preferencia</label>
+                                                <select>
+                                                    <option selected>Seleccione</option>
+                                                    <option value="1">Mañana</option>
+                                                    <option value="2">Tarde</option>
+                                                    <option value="3">Noche</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        `;
+                                `;
 
                     cursoContainer.appendChild(cursoItem);
                 });
