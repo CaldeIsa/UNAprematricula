@@ -5,52 +5,96 @@
 }
 
 <div class="contenedor CSM listaCursos">
-    <div class="accordion accordion-flush" id="accordionFlushExample" style="width:100%"></div>
+    <div class="accordion accordion-flush" id="accordionFlushYears" style="width:100%"></div>
 </div>
+
+
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const ciclos = ["I CICLO", "II CICLO", "III CICLO"];
-        const cursos = ["Fundamentos de la informatica", "Estudios Generales", "Inglés", "Matemáticas", "Historia"];
-        const accordionContainer = document.getElementById("accordionFlushExample");
+        // Definir años, ciclos y sus respectivos cursos
+        const anosConCiclosYCursos = {
+            "PRIMER AÑO": {
+                "I CICLO": ["Fundamentos de la informatica", "Matematica para Informatica", "Estudios Generales", "Estudios Generales"],
+                "II CICLO": ["Programación I", "Inglés Integrado II", "Cálculo I", "Estudios Generales III", "Estudios Generales IV"]
+            },
+            "SEGUNDO AÑO": {
+                "I CICLO": ["Soporte Tecnico", "Programacion II", "Algebra Lineal", "Estrutucas Discretas", "Ingles Integrado II"],
+                "II CICLO": ["Arquitectura de Computadoras", "Programación III", "Estructuras de Datos", "La Organización y su Entorno", "Probabilidad y Estadística"]
+            },
+            "TERCER AÑO": {
+                "I CICLO": ["Comunicaciones y redes de Computadores", "Programación VI", "Ingeniería de Sistemas I", "Diseño e Implementación de Base de Datos", "Sistemas Operativos"],
+                "II CICLO": ["Paradigmas de Programación", "Ingeniería de Sistemas II", "Administración de Bases de Datos", "Liderazgo y Organización", "Investigación de Operaciones y sus Aplicaciones"]
+            },
+            "CUARTO AÑO": {
+                "I CICLO": ["Ingeniería de Sistemas III", "Diseño y Programación de Moviles", "Métodos de Investigación", "Optativa", "Optativa"],
+                "II CICLO": ["PPS", "Aplicaciones Informáticas Globales", "Informática y Sociedad", "Optativa", "Optativa"]
+            }
+        };
 
-        ciclos.forEach((ciclo, cicloIndex) => {
-            const cicloItem = document.createElement("div");
-            cicloItem.className = "accordion-item";
+        const accordionContainer = document.getElementById("accordionFlushYears");
 
-            const cicloHeaderId = `flush-heading${cicloIndex}`;
-            const cicloCollapseId = `flush-collapse${cicloIndex}`;
+        Object.keys(anosConCiclosYCursos).forEach((ano, anoIndex) => {
+            const anoItem = document.createElement("div");
+            anoItem.className = "accordion-item";
 
-            cicloItem.innerHTML = `
-                        <h4 class="accordion-header" id="${cicloHeaderId}">
+            const anoHeaderId = `flush-heading-ano${anoIndex}`;
+            const anoCollapseId = `flush-collapse-ano${anoIndex}`;
+
+            anoItem.innerHTML = `
+                    <h4 class="accordion-header" id="${anoHeaderId}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${anoCollapseId}" aria-expanded="false" aria-controls="${anoCollapseId}">
+                            <strong>${ano}</strong>
+                        </button>
+                    </h4>
+                    <div id="${anoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${anoHeaderId}" data-bs-parent="#accordionFlushYears">
+                        <div class="accordion accordion-flush" id="accordion${anoIndex}"></div>
+                    </div>
+                `;
+
+            accordionContainer.appendChild(anoItem);
+
+            const accordionAnoContainer = document.getElementById(`accordion${anoIndex}`);
+            const ciclosConCursos = anosConCiclosYCursos[ano];
+
+            Object.keys(ciclosConCursos).forEach((ciclo, cicloIndex) => {
+                const cicloItem = document.createElement("div");
+                cicloItem.className = "accordion-item";
+
+                const cicloHeaderId = `flush-heading${anoIndex}-${cicloIndex}`;
+                const cicloCollapseId = `flush-collapse${anoIndex}-${cicloIndex}`;
+
+                cicloItem.innerHTML = `
+                        <h5 class="accordion-header" id="${cicloHeaderId}">
                             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cicloCollapseId}" aria-expanded="false" aria-controls="${cicloCollapseId}">
-                                <strong>${ciclo}</strong>
+                                ${ciclo}
                             </button>
-                        </h4>
-                        <div id="${cicloCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cicloHeaderId}" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion accordion-flush" id="accordionCursos${cicloIndex}">
-                            </div>
+                        </h5>
+                        <div id="${cicloCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cicloHeaderId}" data-bs-parent="#accordion${anoIndex}">
+                            <div class="accordion accordion-flush" id="accordionCursos${anoIndex}-${cicloIndex}"></div>
                         </div>
                     `;
 
-            accordionContainer.appendChild(cicloItem);
+                accordionAnoContainer.appendChild(cicloItem);
 
-            const cursoContainer = document.getElementById(`accordionCursos${cicloIndex}`);
+                const cursoContainer = document.getElementById(`accordionCursos${anoIndex}-${cicloIndex}`);
+                const cursos = ciclosConCursos[ciclo]; // Obtener cursos específicos para el ciclo actual
 
-            cursos.forEach((curso, cursoIndex) => {
-                const cursoItem = document.createElement("div");
-                cursoItem.className = "accordion-item";
+                cursos.forEach((curso, cursoIndex) => {
+                    const cursoItem = document.createElement("div");
+                    cursoItem.className = "accordion-item";
 
-                const cursoHeaderId = `flush-heading${cicloIndex}-${cursoIndex}`;
-                const cursoCollapseId = `flush-collapse${cicloIndex}-${cursoIndex}`;
+                    const cursoHeaderId = `flush-heading${anoIndex}-${cicloIndex}-${cursoIndex}`;
+                    const cursoCollapseId = `flush-collapse${anoIndex}-${cicloIndex}-${cursoIndex}`;
 
-                cursoItem.innerHTML = `
-                            <h5 class="accordion-header" id="${cursoHeaderId}">
+                    cursoItem.innerHTML = `
+                            <h6 class="accordion-header" id="${cursoHeaderId}">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#${cursoCollapseId}" aria-expanded="false" aria-controls="${cursoCollapseId}">
                                     ${curso.toUpperCase()}
                                 </button>
-                            </h5>
-                                <div id="${cursoCollapseId}" class="accordion-collapse collapse" data-bs-toggle="collapse" aria-labelledby="${cursoHeaderId}" data-bs-parent="#accordionCursos${cicloIndex}">
+                            </h6>
+                            <div id="${cursoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cursoHeaderId}" data-bs-parent="#accordionCursos${anoIndex}-${cicloIndex}">
                                 <div class="accordion-body">
                                     <div class="datosP">
                                         <p>Prematricular</p>
@@ -87,7 +131,8 @@
                             </div>
                         `;
 
-                cursoContainer.appendChild(cursoItem);
+                    cursoContainer.appendChild(cursoItem);
+                });
             });
         });
     });
