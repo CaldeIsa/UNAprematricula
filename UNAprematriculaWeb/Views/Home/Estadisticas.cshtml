@@ -3,109 +3,180 @@
 *@
 @{
 }
-<div class="contenedor CSM CEst" style="padding:4%!important">
+<div class="contenedor  CEst" style="padding:4%!important">
 
     <h1 class="Title">ESTADISTICAS</h1>
+	<h4>	CICLO I - 2024</h4>
+    <div id="cursos" class="contenedorEst"></div>
 
-	<p>Fundamentos de la Informatica</p>
-    <div class="contenedorEst">
-		<div class="estadistica">
-			<p>Tipo de Matricula</p>
-			<canvas id="miGrafico"></canvas>
-			<script>
-				document.addEventListener('DOMContentLoaded', function () {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cursos = [
+                
+                {
+                    nombre: "Ingles Integrado II",
+                    prematriculados: 60,
+                    tipoMatricula: [35, 15, 10],
+                    vecesMatriculado: [40, 10, 5, 5],
+                    asisteTutorias: [45, 15],
+                    horarioPreferido: [20, 10, 30]
+                },
+                {
+                    nombre: "Estudios Generales 3",
+                    prematriculados: 80,
+                    tipoMatricula: [50, 20, 10],
+                    vecesMatriculado: [50, 20, 7, 3],
+                    asisteTutorias: [60, 20],
+                    horarioPreferido: [25, 20, 35]
+                },
+                {
+                    nombre: "Estudios Generales 4",
+                    prematriculados: 70,
+                    tipoMatricula: [40, 20, 10],
+                    vecesMatriculado: [45, 15, 5, 5],
+                    asisteTutorias: [50, 20],
+                    horarioPreferido: [22, 18, 30]
+                },
+                {
+                    nombre: "Calculo I",
+                    prematriculados: 90,
+                    tipoMatricula: [60, 20, 10],
+                    vecesMatriculado: [55, 20, 10, 5],
+                    asisteTutorias: [65, 25],
+                    horarioPreferido: [30, 20, 40]
+                },
+                {
+                    nombre: "Programación I",
+                    prematriculados: 85,
+                    tipoMatricula: [55, 20, 10],
+                    vecesMatriculado: [50, 20, 10, 5],
+                    asisteTutorias: [60, 25],
+                    horarioPreferido: [25, 15, 45]
+                }
+            ];
 
-					var datos = {
-						etiquetas: ["Primera Vez", "Matriculado", "Repitencia"],
-						datos: [50, 15, 10]
-					};
+            const container = document.getElementById('cursos');
+            cursos.forEach((curso, index) => {
+                const cursoDiv = document.createElement('div');
+                cursoDiv.innerHTML = `
+                            <h2>${curso.nombre}</h2>
+                            <p>Estudiantes prematriculados: <strong>${curso.prematriculados}</strong></p>
+                            <div class="estadistica">
+                                <p>Tipo de Matricula</p>
+                                <canvas id="graficoTipoMatricula${index}"></canvas>
+                            </div>
+                            <div class="estadistica">
+                                <p>Veces matriculado</p>
+                                <canvas id="graficoVecesMatriculado${index}"></canvas>
+                            </div>
+                            <div class="estadistica">
+                                <p>Asiste a tutorias</p>
+                                <canvas id="graficoAsisteTutorias${index}"></canvas>
+                            </div>
+                            <div class="estadistica">
+                                <p>Horario preferido</p>
+                                <canvas id="graficoHorarioPreferido${index}"></canvas>
+                            </div>
+                        `;
+                container.appendChild(cursoDiv);
 
-					// Configurar el gráfico circular
-					var ctx = document.getElementById('miGrafico').getContext('2d');
-					var miGrafico = new Chart(ctx, {
-						type: 'pie', // Tipo de gráfico circular
-						data: {
-							labels: datos.etiquetas,
-							datasets: [{
-								label: 'Tipo de Matricula',
-								data: datos.datos,
-								backgroundColor: [
-									'rgba(166, 19, 24, 1)', // Rojo
-									'rgba(255, 81, 87, 1)', // Azul
-									'rgba(190, 0, 65, 1)', // Amarillo
-								],
-								borderColor: [
-									'white'
-								],
-								borderWidth: 1
-							}]
-						},
-						options: {
-							plugins: {
-								legend: {
-									labels: {
-										font: {
-											size: 14,
-											weight: 'bold'
-										},
-										color: 'black'
-									}
-								}
-							}
-						}
-					});
-				});
-			</script>
-		</div>
-		<div class="estadistica">
-			<p>Tipo de Matricula</p>
-			<canvas id="miGrafico2"></canvas>
-			<script>
-				document.addEventListener('DOMContentLoaded', function () {
+                new Chart(document.getElementById(`graficoTipoMatricula${index}`).getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ["Primera Vez", "Matriculado", "Repitencia"],
+                        datasets: [{
+                            label: 'Tipo de Matricula',
+                            data: curso.tipoMatricula,
+                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)', 'rgba(190, 0, 65, 1)'],
+                            borderColor: ['white'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: { size: 14, weight: 'bold' },
+                                    color: 'black'
+                                }
+                            }
+                        }
+                    }
+                });
 
-					var datos = {
-						etiquetas: ["Primera Vez", "Matriculado", "Repitencia"],
-						datos: [50, 15, 10]
-					};
+                new Chart(document.getElementById(`graficoVecesMatriculado${index}`).getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ["1 vez", "2 veces", "3 veces", "4 o más"],
+                        datasets: [{
+                            label: 'Veces matriculado',
+                            data: curso.vecesMatriculado,
+                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)', 'rgba(190, 0, 65, 1)', 'rgba(74, 23, 25, 1)'],
+                            borderColor: ['white'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: { size: 14, weight: 'bold' },
+                                    color: 'black'
+                                }
+                            }
+                        }
+                    }
+                });
 
-					// Configurar el gráfico circular
-					var ctx = document.getElementById('miGrafico2').getContext('2d');
-					var miGrafico2 = new Chart(ctx, {
-						type: 'pie', // Tipo de gráfico circular
-						data: {
-							labels: datos.etiquetas,
-							datasets: [{
-								label: 'Tipo de Matricula',
-								data: datos.datos,
-								backgroundColor: [
-									'rgba(166, 19, 24, 1)', // Rojo
-									'rgba(255, 81, 87, 1)', // Azul
-									'rgba(190, 0, 65, 1)', // Amarillo
-								],
-								borderColor: [
-									'white'
-								],
-								borderWidth: 1
-							}]
-						},
-						options: {
-							plugins: {
-								legend: {
-									labels: {
-										font: {
-											size: 14,
-											weight: 'bold'
-										},
-										color: 'black'
-									}
-								}
-							}
-						}
-					});
-				});
-			</script>
-		</div>
-		
-    </div>
+                new Chart(document.getElementById(`graficoAsisteTutorias${index}`).getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ["SI", "NO"],
+                        datasets: [{
+                            label: 'Asiste a tutorias',
+                            data: curso.asisteTutorias,
+                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)'],
+                            borderColor: ['white'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: { size: 14, weight: 'bold' },
+                                    color: 'black'
+                                }
+                            }
+                        }
+                    }
+                });
+
+                new Chart(document.getElementById(`graficoHorarioPreferido${index}`).getContext('2d'), {
+                    type: 'pie',
+                    data: {
+                        labels: ["Mañana", "Tarde", "Noche"],
+                        datasets: [{
+                            label: 'Horario preferido',
+                            data: curso.horarioPreferido,
+                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)', 'rgba(190, 0, 65, 1)'],
+                            borderColor: ['white'],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: { size: 14, weight: 'bold' },
+                                    color: 'black'
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 
 </div>
