@@ -3,17 +3,19 @@
 *@
 @{
 }
-<div class="contenedor  CEst" style="padding:4%!important">
-
+<div class="contenedor CEst" style="padding:4%!important">
     <h1 class="Title">ESTADISTICAS</h1>
-	<h4>	CICLO I - 2024</h4>
-    <div id="cursos" class="contenedorEst"></div>
-    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="CreateEstadistica" role="button">REGRESAR</a>
+    <h4>CICLO I - 2024</h4>
+
+    <div class="accordion" id="accordionCursos">
+        <!-- Los contenedores de los cursos se generarán aquí -->
+    </div>
+
+    <a class="btn btn-light mt-3" asp-area="" asp-controller="Home" asp-action="CreateEstadistica" role="button">REGRESAR</a>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const cursos = [
-                
                 {
                     nombre: "Ingles Integrado II",
                     prematriculados: 60,
@@ -40,7 +42,7 @@
                 },
                 {
                     nombre: "Calculo I",
-                    prematriculados: 9,
+                    prematriculados: 90,
                     tipoMatricula: [60, 20, 10],
                     vecesMatriculado: [55, 20, 10, 5],
                     asisteTutorias: [65, 25],
@@ -56,30 +58,39 @@
                 }
             ];
 
-            const container = document.getElementById('cursos');
+            const container = document.getElementById('accordionCursos');
             cursos.forEach((curso, index) => {
-                const cursoDiv = document.createElement('div');
-                cursoDiv.innerHTML = `
-                            <h2>${curso.nombre}</h2>
-                            <p>Estudiantes prematriculados: <strong>${curso.prematriculados}</strong></p>
-                            <div class="estadistica">
-                                <p>Tipo de Matricula</p>
-                                <canvas id="graficoTipoMatricula${index}"></canvas>
-                            </div>
-                            <div class="estadistica">
-                                <p>Veces matriculado</p>
-                                <canvas id="graficoVecesMatriculado${index}"></canvas>
-                            </div>
-                            <div class="estadistica">
-                                <p>Asiste a tutorias</p>
-                                <canvas id="graficoAsisteTutorias${index}"></canvas>
-                            </div>
-                            <div class="estadistica">
-                                <p>Horario preferido</p>
-                                <canvas id="graficoHorarioPreferido${index}"></canvas>
+                const cursoItem = document.createElement('div');
+                cursoItem.classList.add('accordion-item');
+                cursoItem.innerHTML = `
+                            <h2 class="accordion-header" id="heading${index}">
+                                <button class="accordion-button ${index === 0 ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="collapse${index}">
+                                    ${curso.nombre}
+                                </button>
+                            </h2>
+                            <div id="collapse${index}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" aria-labelledby="heading${index}" data-bs-parent="#accordionCursos">
+                                <div class="accordion-body">
+                                    <p>Estudiantes prematriculados: <strong>${curso.prematriculados}</strong></p>
+                                    <div class="estadistica">
+                                        <p>Tipo de Matricula</p>
+                                        <canvas id="graficoTipoMatricula${index}"></canvas>
+                                    </div>
+                                    <div class="estadistica">
+                                        <p>Veces matriculado</p>
+                                        <canvas id="graficoVecesMatriculado${index}"></canvas>
+                                    </div>
+                                    <div class="estadistica">
+                                        <p>Asiste a tutorias</p>
+                                        <canvas id="graficoAsisteTutorias${index}"></canvas>
+                                    </div>
+                                    <div class="estadistica">
+                                        <p>Horario preferido</p>
+                                        <canvas id="graficoHorarioPreferido${index}"></canvas>
+                                    </div>
+                                </div>
                             </div>
                         `;
-                container.appendChild(cursoDiv);
+                container.appendChild(cursoItem);
 
                 new Chart(document.getElementById(`graficoTipoMatricula${index}`).getContext('2d'), {
                     type: 'pie',
@@ -179,5 +190,9 @@
             });
         });
     </script>
-
 </div>
+
+<!-- Add Bootstrap CSS and JS (replace with your preferred method of inclusion) -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
