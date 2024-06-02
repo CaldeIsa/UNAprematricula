@@ -440,8 +440,8 @@
         return course ? course.prerequisites : null;
     }
 
-    getCycleData() {
-        return this.cycles;
+    getCoursesData() {
+        return this.courses;
     }
 
     getDT() {

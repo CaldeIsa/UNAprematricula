@@ -3,103 +3,12 @@
 *@
 @{
 }
-<div class="main">
+<div class="contenedor CSM listaCursos">
 	<h1 class="Title">CURSOS</h1>
 
-	<div id="carouselCourses" class="carousel contenedor bg-primary">
-		<div class="carousel-inner ">
-			<div class="carousel-item active">
-				<h2 class="Title">I CICLO - I SEMESTRE</h2>
-				<table class="table text-light tabla">
-					<thead>
-						<tr>
-							<th scope="col">NRC</th>
-							<th scope="col">CURSO</th>
-							<th scope="col">ESTADO</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">EIF200</th>
-							<td><a class="curso" asp-controller="Home" asp-action="InfoCourse">Fundamentos de Informática</a></td>
-
-							<td>MATRICULADO</td>
-						</tr>
-						<tr>
-							<th scope="row">MAT030</th>
-							<td><a class="curso">Matemática para Informática</a></td>
-							<td>MATRICULADO</td>
-						</tr>
-						<tr>
-							<th scope="row">EG###</th>
-							<td><a class="curso">Estudios generales I</a></td>
-							<td>PENDIENTE</td>
-						</tr>
-						<tr>
-							<th scope="row">EG###</th>
-							<td><a class="curso">Estudios generales II</a></td>
-							<td>PENDIENTE</td>
-						</tr>
-						<tr>
-							<th scope="row">LIX410</th>
-							<td><a class="curso">Inglés integrado I</a></td>
-							<td>APROBADO</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="carousel-item">
-				<h2 class="Title">I CICLO - II SEMESTRE</h2>
-				<table class="table text-light tabla">
-					<thead>
-						<tr>
-							<th scope="col">NRC</th>
-							<th scope="col">CURSO</th>
-							<th scope="col">ESTADO</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th scope="row">EIF200</th>
-							<td><a class="curso">Fundamentos de Informática</a></td>
-							<td>MATRICULADO</td>
-						</tr>
-						<tr>
-							<th scope="row">MAT030</th>
-							<td><a class="curso">Matemática para Informática</a></td>
-							<td>MATRICULADO</td>
-						</tr>
-						<tr>
-							<th scope="row">EG###</th>
-							<td><a class="curso">Estudios generales I</a></td>
-							<td>PENDIENTE</td>
-						</tr>
-						<tr>
-							<th scope="row">EG###</th>
-							<td><a class="curso">Estudios generales II</a></td>
-							<td>PENDIENTE</td>
-						</tr>
-						<tr>
-							<th scope="row">LIX410</th>
-							<td><a class="curso">Inglés integrado I</a></td>
-							<td>APROBADO</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="carousel-item">
-				<img src="..." class="d-block w-100" alt="...">
-			</div>
-		</div>
-		<button class="carousel-control-prev" type="button" data-bs-target="#carouselCourses" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button" data-bs-target="#carouselCourses" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span>
-			<span class="visually-hidden">Next</span>
-		</button>
-	</div>
+    <div class="accordion accordion-flush" id="accordionCourses" style="width:100%"></div>
+    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainEstudiante" role="button">PREMATRICULAR</a>
+    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainEstudiante" role="button">REGRESAR</a>
 
 </div>
 
