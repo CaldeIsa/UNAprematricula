@@ -1,0 +1,37 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<div class="contenedor CSM">
+
+    <form id="registerForm">
+
+        <h1 class="Title">REGISTRO</h1>
+
+        <p><b>Año</b></p>
+        <select id="Anno" name="Anno" placeholder="Año" required>
+            <option selected>Seleccione</option>
+            <option value="24">2024</option>
+            <option value="25">2025</option>
+            <option value="26">2026</option>
+            <option value="27">2027</option>
+            <option value="28">2028</option>
+
+        </select>
+        <p><b>Ciclo</b></p>
+        <select id="ciclo" name="ciclo" placeholder="CICLO" required>
+            <option selected>Seleccione</option>
+            <option value="I">I CICLO</option>
+            <option value="II">II CICLO</option>
+            <option value="III">III CICLO</option>
+        </select>
+        <p><b>Fecha de apertura</b></p>
+        <input type="date" id="fechaA" name="fechaA" required>
+        <p><b>Fecha de cierre</b></p>
+        <input type="date" id="fechaC" name="fechaC" required>
+        <button type="submit" class="btn btn-light">REGISTRAR PREMATRICULA</button>
+    </form>
+    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainAcademico" role="button">REGRESAR</a>
+
+</div>

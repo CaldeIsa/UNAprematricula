@@ -73,11 +73,9 @@ document.addEventListener('DOMContentLoaded', function () {
                                         <div id="${cursoCollapseId}" class="accordion-collapse collapse" aria-labelledby="${cursoHeaderId}" data-bs-parent="#accordionCursos${anoIndex}-${cicloIndex}">
                                             <div class="accordion-body">
                                                 <div class="datosP">
-                                                    <p><strong>ESTADO: ${cursoData.status.toUpperCase()}</strong></p>
                                                     <p><strong>NRC:</strong> ${cursoData.nrc}</p>
                                                     <p><strong>Créditos:</strong> ${cursoData.credits}</p>
                                                     <p><strong>Descripción:</strong> ${cursoData.description}</p>
-                                                    
                                                     <p><strong>Requisitos:</strong> ${Array.isArray(cursoData.prerequisites) ? cursoData.prerequisites.join(', ') : cursoData.prerequisites}</p>
                                                 </div>
                                             </div>

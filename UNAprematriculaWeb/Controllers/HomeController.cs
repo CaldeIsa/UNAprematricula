@@ -26,7 +26,17 @@ namespace UNAprematriculaWeb.Controllers
 		{
 			return View();
 		}
-		public IActionResult Index()
+
+		public IActionResult PlanEstudio()
+		{
+			return View();
+		}
+
+        public IActionResult CreateMatricula()
+        {
+            return View();
+        }
+        public IActionResult Index()
 		{
 			return View();
 		}
