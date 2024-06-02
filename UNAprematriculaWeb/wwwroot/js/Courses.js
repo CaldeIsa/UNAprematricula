@@ -4,5 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const cycle = Database.getCycleData()
 
-    console.log("Estoy aqui: ", cycle);
+    const carousel = document.getElementById("carouselCourses");
+
+
+    console.log(Object.keys(cycle));
+    console.log(Object.keys(cycle).toString());
 });

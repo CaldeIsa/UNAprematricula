@@ -26,57 +26,57 @@
 
         this.courses = [
             // Primer año
-            { name: 'FUNDAMENTOS DE LA INFORMATICA', nrc: 'EIF200', credits: 3, description: 'Introducción a la lógica, desarrollo de lenguaje técnico y manejo de aplicaciones', prerequisites: 'Ingreso a la carrera' },
-            { name: 'MATEMATICA PARA INFORMATICA', nrc: 'MAT030', credits: 4, description: 'Introducción a la matematica lógica y funcional', prerequisites: [] },
-            { name: 'ESTUDIOS GENERALES I', nrc: '1', credits: 3, description: 'Humanismo', prerequisites: [] },
-            { name: 'ESTUDIOS GENERALES II', nrc: '2', credits: 3, description: 'Humanismo', prerequisites: [] },
-            { name: 'INGLÉS INTEGRADO I', nrc: 'LIX410', credits: 4, description: 'Introducción repaso al idioma de inglés', prerequisites: [] },
+            { id: 1, name: 'FUNDAMENTOS DE LA INFORMATICA', nrc: 'EIF200', credits: 3, description: 'Introducción a la lógica, desarrollo de lenguaje técnico y manejo de aplicaciones', prerequisites: 'Ingreso a la carrera' },
+            { id: 2, name: 'MATEMATICA PARA INFORMATICA', nrc: 'MAT030', credits: 4, description: 'Introducción a la matematica lógica y funcional', prerequisites: [] },
+            { id: 3, name: 'ESTUDIOS GENERALES I', nrc: '1', credits: 3, description: 'Humanismo', prerequisites: [] },
+            { id: 4, name: 'ESTUDIOS GENERALES II', nrc: '2', credits: 3, description: 'Humanismo', prerequisites: [] },
+            { id: 5, name: 'INGLÉS INTEGRADO I', nrc: 'LIX410', credits: 4, description: 'Introducción repaso al idioma de inglés', prerequisites: [] },
 
-            { name: 'PROGRAMACIÓN I', nrc: 'EIF201', credits: 4, description: 'Continuación con la lógica en programación orientado a objetos en c++', prerequisites: ['FUNDAMENTOS DE LA INFORMATICA', 'MATEMATICA PARA INFORMATICA'] },
-            { name: 'INGLÉS INTEGRADO II', nrc: 'LIX411', credits: 4, description: 'Siguiente nivel del idioma con temas más avanzados', prerequisites: ['INGLÉS INTEGRADO I'] },
-            { name: 'CÁLCULO I', nrc: 'MAT002', credits: 4, description: 'Nivel de matemática superior', prerequisites: ['MATEMATICA PARA INFORMATICA'] },
-            { name: 'ESTUDIOS GENERALES III', nrc: '3', credits: 3, description: 'Humanismo', prerequisites: [] },
-            { name: 'ESTUDIOS GENERALES IV', nrc: '4', credits: 3, description: 'Humanismo', prerequisites: [] },
+            { id: 6, name: 'PROGRAMACIÓN I', nrc: 'EIF201', credits: 4, description: 'Continuación con la lógica en programación orientado a objetos en c++', prerequisites: ['FUNDAMENTOS DE LA INFORMATICA', 'MATEMATICA PARA INFORMATICA'] },
+            { id: 7, name: 'INGLÉS INTEGRADO II', nrc: 'LIX411', credits: 4, description: 'Siguiente nivel del idioma con temas más avanzados', prerequisites: ['INGLÉS INTEGRADO I'] },
+            { id: 8, name: 'CÁLCULO I', nrc: 'MAT002', credits: 4, description: 'Nivel de matemática superior', prerequisites: ['MATEMATICA PARA INFORMATICA'] },
+            { id: 9, name: 'ESTUDIOS GENERALES III', nrc: '3', credits: 3, description: 'Humanismo', prerequisites: [] },
+            { id: 10, name: 'ESTUDIOS GENERALES IV', nrc: '4', credits: 3, description: 'Humanismo', prerequisites: [] },
 
             // Segundo año
-            { name: 'SOPORTE TECNICO', nrc: 'EIF202', credits: 3, description: 'Fundamentos de hardware y electrónica', prerequisites: ['FUNDAMENTOS DE LA INFORMATICA'] },
-            { name: 'PROGRAMACION II', nrc: 'EIF204', credits: 4, description: 'Modelo y arquitectura en la programación orientado a objetos en c++', prerequisites: ['PROGRAMACIÓN I'] },
-            { name: 'ALGEBRA LINEAL', nrc: 'MAT005', credits: 4, description: 'Nivel de matemática relacionado al álgebra', prerequisites: ['CÁLCULO I'] },
-            { name: 'ESTRUCTURAS DISCRETAS', nrc: 'EIF203', credits: 3, description: 'Matemáticas con un enfoque discreto a la estructura en programación', prerequisites: ['FUNDAMENTOS DE LA INFORMATICA', 'MATEMATICA PARA INFORMATICA'] },
-            { name: 'INGLÉS INTEGRADO III', nrc: 'LIX412', credits: 4, description: 'Enfoque al nivel más avanzado', prerequisites: ['INGLÉS INTEGRADO II'] },
+            { id: 11, name: 'SOPORTE TECNICO', nrc: 'EIF202', credits: 3, description: 'Fundamentos de hardware y electrónica', prerequisites: ['FUNDAMENTOS DE LA INFORMATICA'] },
+            { id: 12, name: 'PROGRAMACION II', nrc: 'EIF204', credits: 4, description: 'Modelo y arquitectura en la programación orientado a objetos en c++', prerequisites: ['PROGRAMACIÓN I'] },
+            { id: 13, name: 'ALGEBRA LINEAL', nrc: 'MAT005', credits: 4, description: 'Nivel de matemática relacionado al álgebra', prerequisites: ['CÁLCULO I'] },
+            { id: 14, name: 'ESTRUCTURAS DISCRETAS', nrc: 'EIF203', credits: 3, description: 'Matemáticas con un enfoque discreto a la estructura en programación', prerequisites: ['FUNDAMENTOS DE LA INFORMATICA', 'MATEMATICA PARA INFORMATICA'] },
+            { id: 15, name: 'INGLÉS INTEGRADO III', nrc: 'LIX412', credits: 4, description: 'Enfoque al nivel más avanzado', prerequisites: ['INGLÉS INTEGRADO II'] },
 
-            { name: 'ARQUITECTURA DE COMPUTADORAS', nrc: 'EIF205', credits: 3, description: 'Relacionado en la parte lógica de los componentes', prerequisites: ['PROGRAMACIÓN I', 'SOPORTE TECNICO'] },
-            { name: 'PROGRAMACIÓN III', nrc: 'EIF206', credits: 4, description: 'Programación orientado a Java, Swing y Base de datos', prerequisites: ['PROGRAMACION II', 'CÁLCULO I'] },
-            { name: 'ESTRUCTURAS DE DATOS', nrc: 'EIF207', credits: 4, description: 'Programación Orientado al manejo a la arquitectura estructurada', prerequisites: ['ESTRUCTURAS DISCRETAS', 'PROGRAMACION II'] },
-            { name: 'LA ORGANIZACIÓN Y SU ENTORNO', nrc: 'EIF404', credits: 3, description: 'Introducción a la organización de la empresa', prerequisites: ['PROGRAMACIÓN I'] },
-            { name: 'PROBABILIDAD Y ESTADÍSTICA', nrc: 'MAT006', credits: 3, description: 'Matemática orientado a la probabilidad y estadística', prerequisites: ['CÁLCULO I', 'ESTRUCTURAS DISCRETAS'] },
+            { id: 16, name: 'ARQUITECTURA DE COMPUTADORAS', nrc: 'EIF205', credits: 3, description: 'Relacionado en la parte lógica de los componentes', prerequisites: ['PROGRAMACIÓN I', 'SOPORTE TECNICO'] },
+            { id: 17, name: 'PROGRAMACIÓN III', nrc: 'EIF206', credits: 4, description: 'Programación orientado a Java, Swing y Base de datos', prerequisites: ['PROGRAMACION II', 'CÁLCULO I'] },
+            { id: 18, name: 'ESTRUCTURAS DE DATOS', nrc: 'EIF207', credits: 4, description: 'Programación Orientado al manejo a la arquitectura estructurada', prerequisites: ['ESTRUCTURAS DISCRETAS', 'PROGRAMACION II'] },
+            { id: 19, name: 'LA ORGANIZACIÓN Y SU ENTORNO', nrc: 'EIF404', credits: 3, description: 'Introducción a la organización de la empresa', prerequisites: ['PROGRAMACIÓN I'] },
+            { id: 20, name: 'PROBABILIDAD Y ESTADÍSTICA', nrc: 'MAT006', credits: 3, description: 'Matemática orientado a la probabilidad y estadística', prerequisites: ['CÁLCULO I', 'ESTRUCTURAS DISCRETAS'] },
 
             // Tercer año
-            { name: 'COMUNICACIONES Y REDES DE COMPUTADORES', nrc: 'EIF208', credits: 3, description: 'Curso de redes informáticas', prerequisites: ['ARQUITECTURA DE COMPUTADORAS'] },
-            { name: 'PROGRAMACIÓN VI', nrc: 'EIF209', credits: 4, description: 'Programacion en Java', prerequisites: ['PROGRAMACIÓN III'] },
-            { name: 'INGENIERÍA DE SISTEMAS I', nrc: 'EIF210', credits: 4, description: 'Curso en una organizacion', prerequisites: ['PROGRAMACIÓN III'] },
-            { name: 'DISEÑO E IMPLEMENTACIÓN DE BASE DE DATOS', nrc: 'EIF211', credits: 3, description: 'Curso de bases de datos', prerequisites: ['PROGRAMACIÓN III', 'ESTRUCTURAS DE DATOS'] },
-            { name: 'SISTEMAS OPERATIVOS', nrc: 'EIF212', credits: 3, description: 'Curso de sistemas operativos en Linux', prerequisites: ['ARQUITECTURA DE COMPUTADORAS', 'PROGRAMACION II'] },
+            { id: 21, name: 'COMUNICACIONES Y REDES DE COMPUTADORES', nrc: 'EIF208', credits: 3, description: 'Curso de redes informáticas', prerequisites: ['ARQUITECTURA DE COMPUTADORAS'] },
+            { id: 22, name: 'PROGRAMACIÓN VI', nrc: 'EIF209', credits: 4, description: 'Programacion en Java', prerequisites: ['PROGRAMACIÓN III'] },
+            { id: 23, name: 'INGENIERÍA DE SISTEMAS I', nrc: 'EIF210', credits: 4, description: 'Curso en una organizacion', prerequisites: ['PROGRAMACIÓN III'] },
+            { id: 24, name: 'DISEÑO E IMPLEMENTACIÓN DE BASE DE DATOS', nrc: 'EIF211', credits: 3, description: 'Curso de bases de datos', prerequisites: ['PROGRAMACIÓN III', 'ESTRUCTURAS DE DATOS'] },
+            { id: 25, name: 'SISTEMAS OPERATIVOS', nrc: 'EIF212', credits: 3, description: 'Curso de sistemas operativos en Linux', prerequisites: ['ARQUITECTURA DE COMPUTADORAS', 'PROGRAMACION II'] },
 
-            { name: 'PARADIGMAS DE PROGRAMACIÓN', nrc: 'EIF400', credits: 4, description: 'Se aprenderá sobre los diferentes paradigmas de programación', prerequisites: ['PROGRAMACIÓN III'] },
-            { name: 'INGENIERÍA DE SISTEMAS II', nrc: 'EIF401', credits: 4, description: 'Continuación de curso en una organización', prerequisites: ['INGENIERÍA DE SISTEMAS I'] },
-            { name: 'ADMINISTRACIÓN DE BASES DE DATOS', nrc: 'EIF402', credits: 4, description: 'Creación de respaldos de bases de datos', prerequisites: ['DISEÑO E IMPLEMENTACIÓN DE BASE DE DATOS', 'SISTEMAS OPERATIVOS'] },
-            { name: 'LIDERAZGO Y ORGANIZACIÓN', nrc: 'EIF407', credits: 3, description: 'Curso para aprender a ser un líder en una organización', prerequisites: ['LA ORGANIZACIÓN Y SU ENTORNO'] },
-            { name: 'INVESTIGACIÓN DE OPERACIONES Y SUS APLICACIONES', nrc: 'EIF412', credits: 3, description: 'Curso para aprender de operaciones utilizando programación', prerequisites: ['ALGEBRA LINEAL', 'PROBABILIDAD Y ESTADÍSTICA'] },
+            { id: 26, name: 'PARADIGMAS DE PROGRAMACIÓN', nrc: 'EIF400', credits: 4, description: 'Se aprenderá sobre los diferentes paradigmas de programación', prerequisites: ['PROGRAMACIÓN III'] },
+            { id: 27, name: 'INGENIERÍA DE SISTEMAS II', nrc: 'EIF401', credits: 4, description: 'Continuación de curso en una organización', prerequisites: ['INGENIERÍA DE SISTEMAS I'] },
+            { id: 28, name: 'ADMINISTRACIÓN DE BASES DE DATOS', nrc: 'EIF402', credits: 4, description: 'Creación de respaldos de bases de datos', prerequisites: ['DISEÑO E IMPLEMENTACIÓN DE BASE DE DATOS', 'SISTEMAS OPERATIVOS'] },
+            { id: 29, name: 'LIDERAZGO Y ORGANIZACIÓN', nrc: 'EIF407', credits: 3, description: 'Curso para aprender a ser un líder en una organización', prerequisites: ['LA ORGANIZACIÓN Y SU ENTORNO'] },
+            { id: 30, name: 'INVESTIGACIÓN DE OPERACIONES Y SUS APLICACIONES', nrc: 'EIF412', credits: 3, description: 'Curso para aprender de operaciones utilizando programación', prerequisites: ['ALGEBRA LINEAL', 'PROBABILIDAD Y ESTADÍSTICA'] },
 
             // Cuarto año
-            { name: 'INGENIERÍA DE SISTEMAS III', nrc: 'EIF406', credits: 4, description: 'Último curso realizado en una organización', prerequisites: ['INGENIERÍA DE SISTEMAS II'] },
-            { name: 'DISEÑO Y PROGRAMACIÓN DE MOVILES', nrc: 'EIF411', credits: 4, description: 'Creación de aplicaciones móviles', prerequisites: ['PROGRAMACIÓN VI'] },
-            { name: 'MÉTODOS DE INVESTIGACIÓN', nrc: 'EIF413', credits: 3, description: 'Aprendizaje para crear artículos científicos', prerequisites: ['PROBABILIDAD Y ESTADÍSTICA'] },
-            { name: 'OPTATIVA', nrc: '5', credits: 3, description: 'Curso disciplinario', prerequisites: [] },
-            { name: 'OPTATIVA', nrc: '6', credits: 3, description: 'Curso disciplinario', prerequisites: [] },
+            { id: 31, name: 'INGENIERÍA DE SISTEMAS III', nrc: 'EIF406', credits: 4, description: 'Último curso realizado en una organización', prerequisites: ['INGENIERÍA DE SISTEMAS II'] },
+            { id: 32, name: 'DISEÑO Y PROGRAMACIÓN DE MOVILES', nrc: 'EIF411', credits: 4, description: 'Creación de aplicaciones móviles', prerequisites: ['PROGRAMACIÓN VI'] },
+            { id: 33, name: 'MÉTODOS DE INVESTIGACIÓN', nrc: 'EIF413', credits: 3, description: 'Aprendizaje para crear artículos científicos', prerequisites: ['PROBABILIDAD Y ESTADÍSTICA'] },
+            { id: 34, name: 'OPTATIVA', nrc: '5', credits: 3, description: 'Curso disciplinario', prerequisites: [] },
+            { id: 35, name: 'OPTATIVA', nrc: '6', credits: 3, description: 'Curso disciplinario', prerequisites: [] },
 
-            { name: 'PPS', nrc: 'EIF408', credits: 5, description: 'Práctica profesional supervisada', prerequisites: ['PROGRAMACIÓN VI', 'INGENIERÍA DE SISTEMAS II', 'ADMINISTRACIÓN DE BASES DE DATOS'] },
-            { name: 'APLICACIONES INFORMÁTICAS GLOBALES', nrc: 'EIF409', credits: 4, description: 'Creación de una aplicación móvil para una organización', prerequisites: ['PROGRAMACIÓN VI', 'INGENIERÍA DE SISTEMAS II', 'ADMINISTRACIÓN DE BASES DE DATOS'] },
-            { name: 'INFORMÁTICA Y SOCIEDAD', nrc: 'EIF410', credits: 2, description: 'Curso para aprender de tecnología con relación a la sociedad', prerequisites: ['INGENIERÍA DE SISTEMAS II'] },
-            { name: 'OPTATIVA', nrc: '7', credits: 3, description: 'Curso disciplinario', prerequisites: [] },
-            { name: 'OPTATIVA', nrc: '8', credits: 3, description: 'Curso disciplinario', prerequisites: [] }
-        ];  
+            { id: 36, name: 'PPS', nrc: 'EIF408', credits: 5, description: 'Práctica profesional supervisada', prerequisites: ['PROGRAMACIÓN VI', 'INGENIERÍA DE SISTEMAS II', 'ADMINISTRACIÓN DE BASES DE DATOS'] },
+            { id: 37, name: 'APLICACIONES INFORMÁTICAS GLOBALES', nrc: 'EIF409', credits: 4, description: 'Creación de una aplicación móvil para una organización', prerequisites: ['PROGRAMACIÓN VI', 'INGENIERÍA DE SISTEMAS II', 'ADMINISTRACIÓN DE BASES DE DATOS'] },
+            { id: 38, name: 'INFORMÁTICA Y SOCIEDAD', nrc: 'EIF410', credits: 2, description: 'Curso para aprender de tecnología con relación a la sociedad', prerequisites: ['INGENIERÍA DE SISTEMAS II'] },
+            { id: 39, name: 'OPTATIVA', nrc: '7', credits: 3, description: 'Curso disciplinario', prerequisites: [] },
+            { id: 40, name: 'OPTATIVA', nrc: '8', credits: 3, description: 'Curso disciplinario', prerequisites: [] }
+        ];
 
         this.cycles = [{
             "PRIMER AÑO": {
