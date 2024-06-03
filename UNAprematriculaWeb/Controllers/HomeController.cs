@@ -83,12 +83,16 @@ namespace UNAprematriculaWeb.Controllers
 			return View();
 		}
 
-		public IActionResult Estadisticas()
-		{
-			return View();
-		}
+        [HttpGet]
+        public IActionResult Estadisticas(string ciclo, string ano)
+        {
+            // Pasa los datos seleccionados a la vista Estadisticas
+            ViewBag.Ciclo = ciclo;
+            ViewBag.Ano = ano;
+            return View();
+        }
 
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

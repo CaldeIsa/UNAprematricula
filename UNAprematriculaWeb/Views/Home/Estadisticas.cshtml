@@ -1,197 +1,20 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    var ciclo = ViewBag.Ciclo;
+    var ano = ViewBag.Ano;
 }
-<div class="contenedor CEst" style="padding:4%!important">
+<div class="contenedor CSM listaCursos" style="padding:4%!important">
     <h1 class="Title">ESTADISTICAS</h1>
-    <h4>CICLO I - 2024</h4>
 
-    <div class="accordion" id="accordionCursos">
-        <!-- Los contenedores de los cursos se generarán aquí -->
-    </div>
+    <div class="accordion accordion-flush" id="accordionEstadisticas" style="width:100%"></div>
 
     <a class="btn btn-light mt-3" asp-area="" asp-controller="Home" asp-action="CreateEstadistica" role="button">REGRESAR</a>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const cursos = [
-                {
-                    nombre: "Programacion I",
-                    prematriculados: 60,
-                    tipoMatricula: [35, 15, 10],
-                    vecesMatriculado: [40, 10, 5, 5],
-                    asisteTutorias: [45, 15],
-                    horarioPreferido: [20, 10, 30]
-                },
-                {
-                    nombre: "Paradigmas de Programacion",
-                    prematriculados: 80,
-                    tipoMatricula: [50, 20, 10],
-                    vecesMatriculado: [50, 20, 7, 3],
-                    asisteTutorias: [60, 20],
-                    horarioPreferido: [25, 20, 35]
-                },
-                {
-                    nombre: "Sistemas Operativos",
-                    prematriculados: 70,
-                    tipoMatricula: [40, 20, 10],
-                    vecesMatriculado: [45, 15, 5, 5],
-                    asisteTutorias: [50, 20],
-                    horarioPreferido: [22, 18, 30]
-                },
-                {
-                    nombre: "Soporte Tecnico",
-                    prematriculados: 90,
-                    tipoMatricula: [60, 20, 10],
-                    vecesMatriculado: [55, 20, 10, 5],
-                    asisteTutorias: [65, 25],
-                    horarioPreferido: [30, 20, 40]
-                },
-                {
-                    nombre: "Estructuras Discretas",
-                    prematriculados: 85,
-                    tipoMatricula: [55, 20, 10],
-                    vecesMatriculado: [50, 20, 10, 5],
-                    asisteTutorias: [60, 25],
-                    horarioPreferido: [25, 15, 45]
-                }
-            ];
-
-            const container = document.getElementById('accordionCursos');
-            cursos.forEach((curso, index) => {
-                const cursoItem = document.createElement('div');
-                cursoItem.classList.add('accordion-item');
-                cursoItem.innerHTML = `
-                            <h2 class="accordion-header" id="heading${index}">
-                                <button class="accordion-button ${index === 0 ? '' : 'collapsed'}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${index}" aria-expanded="${index === 0 ? 'true' : 'false'}" aria-controls="collapse${index}">
-                                    ${curso.nombre}
-                                </button>
-                            </h2>
-                            <div id="collapse${index}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}" aria-labelledby="heading${index}" data-bs-parent="#accordionCursos">
-                                <div class="accordion-body">
-                                    <p>Estudiantes prematriculados: <strong>${curso.prematriculados}</strong></p>
-                                    <div class="estadistica">
-                                        <p>Tipo de Matricula</p>
-                                        <canvas id="graficoTipoMatricula${index}"></canvas>
-                                    </div>
-                                    <div class="estadistica">
-                                        <p>Veces matriculado</p>
-                                        <canvas id="graficoVecesMatriculado${index}"></canvas>
-                                    </div>
-                                    <div class="estadistica">
-                                        <p>Asiste a tutorias</p>
-                                        <canvas id="graficoAsisteTutorias${index}"></canvas>
-                                    </div>
-                                    <div class="estadistica">
-                                        <p>Horario preferido</p>
-                                        <canvas id="graficoHorarioPreferido${index}"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                container.appendChild(cursoItem);
-
-                new Chart(document.getElementById(`graficoTipoMatricula${index}`).getContext('2d'), {
-                    type: 'pie',
-                    data: {
-                        labels: ["Primera Vez", "Matriculado", "Repitencia"],
-                        datasets: [{
-                            label: 'Tipo de Matricula',
-                            data: curso.tipoMatricula,
-                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)', 'rgba(190, 0, 65, 1)'],
-                            borderColor: ['white'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: { size: 14, weight: 'bold' },
-                                    color: 'black'
-                                }
-                            }
-                        }
-                    }
-                });
-
-                new Chart(document.getElementById(`graficoVecesMatriculado${index}`).getContext('2d'), {
-                    type: 'pie',
-                    data: {
-                        labels: ["1 vez", "2 veces", "3 veces", "4 o más"],
-                        datasets: [{
-                            label: 'Veces matriculado',
-                            data: curso.vecesMatriculado,
-                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)', 'rgba(190, 0, 65, 1)', 'rgba(74, 23, 25, 1)'],
-                            borderColor: ['white'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: { size: 14, weight: 'bold' },
-                                    color: 'black'
-                                }
-                            }
-                        }
-                    }
-                });
-
-                new Chart(document.getElementById(`graficoAsisteTutorias${index}`).getContext('2d'), {
-                    type: 'pie',
-                    data: {
-                        labels: ["SI", "NO"],
-                        datasets: [{
-                            label: 'Asiste a tutorias',
-                            data: curso.asisteTutorias,
-                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)'],
-                            borderColor: ['white'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: { size: 14, weight: 'bold' },
-                                    color: 'black'
-                                }
-                            }
-                        }
-                    }
-                });
-
-                new Chart(document.getElementById(`graficoHorarioPreferido${index}`).getContext('2d'), {
-                    type: 'pie',
-                    data: {
-                        labels: ["Mañana", "Tarde", "Noche"],
-                        datasets: [{
-                            label: 'Horario preferido',
-                            data: curso.horarioPreferido,
-                            backgroundColor: ['rgba(166, 19, 24, 1)', 'rgba(255, 81, 87, 1)', 'rgba(190, 0, 65, 1)'],
-                            borderColor: ['white'],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        plugins: {
-                            legend: {
-                                labels: {
-                                    font: { size: 14, weight: 'bold' },
-                                    color: 'black'
-                                }
-                            }
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 </div>
 
+<script>
+    var cicloSeleccionado = "@ciclo";
+    var anoSeleccionado = "@ano";
+</script>
+<script src="~/js/Estadisticas.js" type="module"></script>
 <!-- Add Bootstrap CSS and JS (replace with your preferred method of inclusion) -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

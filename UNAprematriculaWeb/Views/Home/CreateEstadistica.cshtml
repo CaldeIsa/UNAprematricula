@@ -1,30 +1,39 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
 <div class="contenedor CSM">
-	<form>
-		<h1 class="Title">ESTADISTICAS</h1>
-		<p><b>Ciclo</b></p>
-		<select id="ciclo" name="ciclo" placeholder="CICLO">
-			<option selected>Seleccione</option>
-			<option value="I">I CICLO</option>
-			<option value="II">II CICLO</option>
-			<option value="III">III CICLO</option>
-		</select>
-		<p><b>Año</b></p>
-		<select id="ciclo" name="ciclo" placeholder="CICLO" required>
-			<option selected>Seleccione</option>
-			<option value="24">2024</option>
-			<option value="25">2025</option>
-			<option value="26">2026</option>
-			<option value="27">2027</option>
-			<option value="28">2028</option>
-
-		</select>
-		<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="Estadisticas" role="button">GENERAR ESTADISTICA</a>
-	</form>
-	<a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainAcademico" role="button">REGRESAR</a>
-	
+    <form id="estadisticaForm" method="post" asp-controller="Home" asp-action="Estadisticas">
+        <h1 class="Title">ESTADISTICAS</h1>
+        <p><b>Ciclo</b></p>
+        <select id="ciclo" name="ciclo" placeholder="CICLO" required>
+            <option selected>Seleccione</option>
+            <option value="I">I CICLO</option>
+            <option value="II">II CICLO</option>
+            <option value="III">III CICLO</option>
+        </select>
+        <p><b>Año</b></p>
+        <select id="ano" name="ano" placeholder="AÑO" required>
+            <option selected>Seleccione</option>
+            <option value="24">2024</option>
+            <option value="25">2025</option>
+            <option value="26">2026</option>
+            <option value="27">2027</option>
+            <option value="28">2028</option>
+        </select>
+        <button type="button" id="generateButton" class="btn btn-light">GENERAR ESTADISTICA</button>
+    </form>
+    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainAcademico" role="button">REGRESAR</a>
 </div>
+
+<script>
+    document.getElementById("generateButton").addEventListener("click", function () {
+        const ciclo = document.getElementById("ciclo").value;
+        const ano = document.getElementById("ano").value;
+
+        if (ciclo !== "Seleccione" && ano !== "Seleccione") {
+            const url = `@Url.Action("Estadisticas", "Home")?ciclo=${ciclo}&ano=${ano}`;
+            window.location.href = url;
+        } else {
+            alert("Por favor, seleccione ambos ciclo y año.");
+        }
+    });
+</script>
