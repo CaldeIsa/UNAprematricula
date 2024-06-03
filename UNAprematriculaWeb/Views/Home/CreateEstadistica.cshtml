@@ -9,7 +9,7 @@
     </div>
     <script src="~/js/Popup.js"></script>
     <form id="estadisticaForm" method="post" asp-controller="Home" asp-action="Estadisticas">
-        <h1 class="Title">ESTADISTICAS</h1>
+        <h1 class="Title">ESTADÍSTICAS</h1>
         <p><b>Ciclo</b></p>
         <select id="ciclo" name="ciclo" placeholder="CICLO" required>
             <option selected>Seleccione</option>
@@ -20,7 +20,7 @@
             <option selected>Seleccione</option>
             <option value="24">2024</option>
         </select>
-        <button type="button" id="generateButton" class="btn btn-light">GENERAR ESTADISTICA</button>
+        <button type="button" id="generateButton" class="btn btn-light">GENERAR ESTADÍSTICA</button>
     </form>
     <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainAcademico" role="button">REGRESAR</a>
 </div>
@@ -33,7 +33,7 @@
         if (ciclo !== "Seleccione" && ano !== "Seleccione") {
             const url = `@Url.Action("Estadisticas", "Home")?ciclo=${ciclo}&ano=${ano}`;
 
-            showPopup('Creando estadisticas. Redirigiendo...', url);
+            showPopup('Creando estadísticas. Redirigiendo...', url);
         } else {
             showPopup("Por favor, seleccione ambos ciclo y año.");
         }
