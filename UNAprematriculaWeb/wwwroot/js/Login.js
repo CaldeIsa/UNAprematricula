@@ -12,9 +12,11 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         if (role === 1) {
             window.location.href =  '/Home/MainAcademico';
         } else if (role === 2) {
-            window.location.href = '/Home/MainEstudiante';
+                window.location.href = '/Home/MainEstudiante';
         }
     } else {
-        alert('Datos de ingreso erroneos');
+        // En cualquier archivo JavaScript donde desees mostrar el pop-up
+        showPopup('Datos de ingreso incorrectos');
+
     }
 });

@@ -4,34 +4,42 @@
 @{
 }
 <div class="contenedor CSM">
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">&times;</span>
+            <p id="popup-message">Datos de ingreso incorrectos</p>
+        </div>
+    </div>
+    <script src="~/js/Popup.js"></script>
+    <form id="registerPremForm">
+		<h1 class="Title">REGISTRO PREMATRICULA</h1>
 
-    <form id="registerForm">
+		<p><b>Año</b></p>
+		<select id="Anno" name="Anno" placeholder="Año" required>
+			<option selected>Seleccione</option>
+			<option value="24">2024</option>
+			<option value="25">2025</option>
+			<option value="26">2026</option>
+			<option value="27">2027</option>
+			<option value="28">2028</option>
 
-        <h1 class="Title">REGISTRO</h1>
-
-        <p><b>Año</b></p>
-        <select id="Anno" name="Anno" placeholder="Año" required>
-            <option selected>Seleccione</option>
-            <option value="24">2024</option>
-            <option value="25">2025</option>
-            <option value="26">2026</option>
-            <option value="27">2027</option>
-            <option value="28">2028</option>
-
-        </select>
-        <p><b>Ciclo</b></p>
-        <select id="ciclo" name="ciclo" placeholder="CICLO" required>
-            <option selected>Seleccione</option>
-            <option value="I">I CICLO</option>
-            <option value="II">II CICLO</option>
-            <option value="III">III CICLO</option>
-        </select>
-        <p><b>Fecha de apertura</b></p>
-        <input type="date" id="fechaA" name="fechaA" required>
-        <p><b>Fecha de cierre</b></p>
-        <input type="date" id="fechaC" name="fechaC" required>
-        <button type="submit" class="btn btn-light">REGISTRAR PREMATRICULA</button>
+		</select>
+		<p><b>Ciclo</b></p>
+		<select id="ciclo" name="ciclo" placeholder="CICLO" required>
+			<option selected>Seleccione</option>
+			<option value="I">I CICLO</option>
+			<option value="II">II CICLO</option>
+			<option value="III">III CICLO</option>
+		</select>
+		<p><b>Fecha de apertura</b></p>
+		<input type="date" id="fechaA" name="fechaA" required>
+		<p><b>Fecha de cierre</b></p>
+		<input type="date" id="fechaC" name="fechaC" required>
     </form>
+        
+
+	<button id="registerprem" type="submit" class="btn btn-light">REGISTRAR PREMATRICULA</button>
     <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainAcademico" role="button">REGRESAR</a>
 
 </div>
+<script src="~/js/site.js"></script>

@@ -15,9 +15,20 @@
 		<button type="submit" class="btn btn-light">INICIAR SESION</button>
 
 	</form>
-	<a type="button"class="btn btn-light" href="/Home/Register" >REGISTRARME</a>
-</div>
+	<p style="margin-top:3%">Datos de ingreso</p>
+	<p>Admin@una.cr / Amin123.</p>
+	<p>Est@una.cr / Est123.</p>
 
+
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<span class="close" onclick="closePopup()">&times;</span>
+			<p id="popup-message">Datos de ingreso incorrectos</p>
+		</div>
+	</div>
+	<script src="~/js/Popup.js"></script>
+
+</div>
 
 <script src="~/js/Database.js" type="module"></script>
 <script src="~/js/Login.js" type="module"></script>

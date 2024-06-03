@@ -1,4 +1,12 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+document.addEventListener('DOMContentLoaded', (event) => {
+    // Selecciona el botón por su ID
+    const boton = document.getElementById('registerprem');
 
-// Write your JavaScript code.
+    // Añade un listener para el evento 'click' y asocia la función alHacerClic
+    boton.addEventListener('click', alHacerClic);
+});
+function alHacerClic() {
+    showPopup('Registro de prematricula exitoso. Redirigiendo...', '/Home/MainAcademico');
+
+}

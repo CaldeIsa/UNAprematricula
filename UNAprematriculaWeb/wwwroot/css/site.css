@@ -108,6 +108,10 @@ canvas {
     .contenedorEst{
         flex-direction:column!important;
     }
+    .popup-content{
+        width:80%!important;
+        margin:70% auto!important;
+    }
 }
 
 input, select{
@@ -159,3 +163,41 @@ width:100%;
 padding:2%;
 
 }
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem !important;
+}
+
+.popup-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 4%;
+    border: 1px solid #888;
+    width: 30%;
+    text-align: center;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 1rem !important;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }

@@ -57,8 +57,12 @@ namespace UNAprematriculaWeb.Controllers
 			return View();
 		}
 
+        public IActionResult MainEstudiante2()
+        {
 
-		public IActionResult Register()
+            return View();
+        }
+        public IActionResult Register()
 		{
 			return View();
 		}

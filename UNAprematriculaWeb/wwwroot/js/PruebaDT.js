@@ -1,6 +1,15 @@
 ﻿import Database from './Database.js';
 
+
+document.getElementById('prematriculaForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    showPopup('Prematricula exitosa. Redirigiendo...','/Home/MainEstudiante2');
+    
+});
 document.addEventListener("DOMContentLoaded", function () {
+
+    showPopup('La prematricula se puede realizar unicamente una vez');
     // Definir años, ciclos y sus respectivos cursos
     const anosConCiclosYCursos = Database.getDT();
 

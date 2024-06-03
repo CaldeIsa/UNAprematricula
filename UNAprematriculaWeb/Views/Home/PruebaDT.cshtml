@@ -5,8 +5,18 @@
 }
 
 <div class="contenedor CSM listaCursos">
-    <div class="accordion accordion-flush" id="accordionFlushYears" style="width:100%"></div>
-    <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainEstudiante" role="button">PREMATRICULAR</a>
+	<div id="popup" class="popup">
+		<div class="popup-content">
+			<span class="close" onclick="closePopup()">&times;</span>
+			<p id="popup-message">Datos de ingreso incorrectos</p>
+		</div>
+	</div>
+	<script src="~/js/Popup.js"></script>
+	<form id="prematriculaForm" style="width:100%">
+		<div class="accordion accordion-flush" id="accordionFlushYears" style="width:100%"></div>
+		<button type="submit" class="btn btn-light">PREMATRICULAR</button>
+	</form>
+	
     <a class="btn btn-light" asp-area="" asp-controller="Home" asp-action="MainEstudiante" role="button">REGRESAR</a>
 </div>
 

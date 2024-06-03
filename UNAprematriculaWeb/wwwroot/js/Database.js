@@ -1,5 +1,6 @@
 ﻿class Database {
     constructor() {
+
         this.users = [
             { username: '1', password: '1', role: 1 },
             { username: '2', password: '2', role: 2 }
@@ -100,6 +101,7 @@
     getDT() {
         return this.anosConCiclosYCursos;
     }
+
 }
 
 const database = new Database();

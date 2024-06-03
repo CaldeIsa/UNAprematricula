@@ -1,10 +1,12 @@
 ﻿import Database from './Database.js';
 
 document.addEventListener("DOMContentLoaded", function () {
+
     const anosConCiclosYCursos = Database.getDT();
     const accordionContainer = document.getElementById("accordionEstadisticas");
     const cicloSeleccionado = window.cicloSeleccionado;
     const anoSeleccionado = window.anoSeleccionado;
+
 
     const cursosExcluidos = ["Optativa", "Generales", "Inglés"];
 
